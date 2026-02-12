@@ -5,7 +5,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-
+    <link rel="icon" href="assets/imagens/head.png" type="image/x-icon" width="320" height="320">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mega Sistemas | Tecnologia e Gestão</title>
@@ -18,25 +18,11 @@
 
 <body>
 
-    <!-- <body>
-        <div id="preloader">
-            <div class="loader-content">
-                <div class="logo-loader">MEGA<span>SISTEM</span></div>
-                <div class="loader-bar">
-                    <div class="progress"></div>
-                </div>
-            </div>
-        </div>
-
-        <header class="header"> ... </header>
-        <main> ... </main>
-
-        <script src="script.js"></script>
-    </body> -->
 
     <header class="header">
         <div class="container navbar">
             <div class="logo" style="font-size: 24px;">MEGA<span>SISTEM</span></div>
+
             <nav class="nav-links">
                 <a href="#solucoes">Soluções</a>
                 <a href="#segmentos">Segmentos</a>
@@ -44,37 +30,63 @@
                 <a href="#blog">Blog</a>
                 <a href="#contato">Contato</a>
             </nav>
+
             <div class="actions">
                 <button class="btn-sec">CLIENTE</button>
                 <button class="btn-pri">SUPORTE</button>
             </div>
+        </div>
     </header>
 
-
     <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="tag-top">PENSOU GESTÃO, PENSOU MEGA</span>
-                <h1>TRANSFORME DADOS EM <span>RESULTADOS.</span></h1>
-                <p>A tecnologia da Mega Sistem automatiza seu<br>
-                    comércio e otimiza sua gestão para você <br> focar no que
-                    importa: <span style="text-transform: uppercase; color: #004cff">crescer</span></p>
-                <div class="hero-btns">
-                    <a href="#solucoes" class="btn-main"
-                        style="font-weight: 300; margin-left: 0px; margin-right: 10px;">Nossas Soluções</a>
-                    <a href="#contato" class="btn-main" style="font-weight: 300;">Contato</a>
+        <div class="hero-wipe"></div>
+
+        <button class="nav-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="nav-arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+        <div class="hero-slide is-active">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="tag-top">PENSOU GESTÃO, PENSOU MEGA</span>
+                    <h1>TRANSFORME DADOS EM <span>RESULTADOS.</span></h1>
+                    <p>A tecnologia da Mega Sistem automatiza seu comércio e otimiza sua gestão para você focar no que
+                        importa: <span class="highlight-text">crescer</span></p>
+                    <div class="hero-btns">
+                        <a href="#solucoes" class="btn-main btn-alt">SOLUÇÕES</a>
+                        <a href="https://wa.me/5511999999999" class="btn-main" target="_blank">CONTATO</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/imagens/Tech 1.png" alt="Tecnologia">
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="blob-gradient"></div>
-                <img src="https://www.totvs.com/wp-content/themes/totvs-main/img/home/hero-ia.png" alt="Tech Visual">
+        </div>
+
+        <div class="hero-slide">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="tag-top">INOVAÇÃO MOBILE</span>
+                    <h1>SUA EMPRESA NA <span>PALMA DA MÃO.</span></h1>
+                    <p>Controle de estoque, vendas e relatórios em tempo real de onde você estiver. Tenha o controle
+                        total do seu negócio.</p>
+                    <div class="hero-btns">
+                        <a href="#mobile" class="btn-main btn-alt">CONHEÇA O APP</a>
+                        <a href="https://wa.me/5511999999999" class="btn-main" target="_blank">FALAR COM CONSULTOR</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/imagens/Tech 1.png" alt="Inovação" style="transform: scaleX(-1);">
+                </div>
             </div>
         </div>
+
         <div class="slider-dots">
             <span class="dot active" onclick="currentSlide(0)"></span>
             <span class="dot" onclick="currentSlide(1)"></span>
         </div>
     </section>
+
+
     <div class="ticker-container">
         <div class="ticker-wrapper">
             <div class="ticker-group">
@@ -88,12 +100,22 @@
                 <span class="ticker-item">GESTÃO</span>
                 <span class="ticker-item">RESULTADOS</span>
             </div>
+
+            <!-- Novo -->
+            <div class="ticker-group">
+                <span class="ticker-item">INOVAÇÃO</span>
+                <span class="ticker-item">TECNOLOGIA</span>
+                <span class="ticker-item">GESTÃO</span>
+                <span class="ticker-item">RESULTADOS</span>
+            </div>
         </div>
     </div>
-    <section id="home" class="about">
+    <!-- CORRIGIDO: você tinha outro id="home" duplicado -->
+    <section id="sobre" class="about">
         <div class="container about-grid">
 
             <div class="about-text-side">
+                <br><br>
                 <h1 style="text-transform: uppercase;">
                     As empresas que movem o país, confiam na <span style="color: #004cff;">MEGA SISTEM</span>
                 </h1>
@@ -108,8 +130,12 @@
 
                     Transformamos tecnologia em resultados reais. Estamos ao lado de quem produz, organiza, vende,
                     atende e constrói. De quem empreende, administra, planeja e faz acontecer todos os dias.
+                    <br>
+                    <br>
 
-                    Nossas soluções atendem empresas que buscam controle, inovação e desempenho em seus processos.
+                    Especializados em sistemas para restaurantes, pizzarias, mini mercados, padarias, pet shops e muito
+                    mais. Oferecemos as melhores soluções:
+                    <span style="color: #004cff;"><br>WayChef, WayMenu e AGS. </span>
                     <br><br>
                     As empresas que movem o presente e constroem o futuro confiam na
                     <span style="font-weight: 700; text-transform: uppercase; color: #004cff;">MEGA SISTEM</span>
@@ -123,89 +149,91 @@
         </div>
     </section>
 
-    <section id="solucoes" class="ecosystem">
+
+    <div class="divider-sobre">
+        <h1 style="text-transform: uppercase;">
+            Sobre a
+            <span style="color: #004cff;">
+                MEGA SISTEM
+            </span>
+        </h1>
+
+        <h3 style="text-transform: uppercase; font-weight: 300; letter-spacing: 1px;">
+            Mais de duas décadas de
+            soluções tecnológicas <br> inovadoras para empresas de todos os portes</h3>
+        <br>
+        <br>
+        <h2 style="text-transform: uppercase;">Nossa missão</h2>
+
+        <p> Desenvolver e fornecer sistemas de gestão empresarial que transformem a </br>a forma como nossos clientes
+            administram seus negócios, proporcionando <br> eficiência, controle e crescimento.
+
+
+            Acreditamos que a tecnologia deve ser <br> uma aliada do empresário, simplificando processos
+            complexos <br> e
+            oferecendo insights valiosos para tomada de decisões estratégicas.</p>
+
+
+    </div>
+
+    <div class="divider2-sobre">
+        <h2 style="text-transform: uppercase;">Nossos Valores</h2>
+        <br>
+
+        <p> Desenvolver e fornecer sistemas de gestão empresarial que transformem a </br>a forma como nossos clientes
+            administram seus negócios, proporcionando <br> eficiência, controle e crescimento.
+
+
+            Acreditamos que a tecnologia deve ser <br> uma aliada do empresário, simplificando processos
+            complexos <br> e
+            oferecendo insights valiosos para tomada de decisões estratégicas.</p>
+
+    </div>
+
+
+
+    <section class="section-inovacao">
         <div class="container">
-            <h2 class="section-title">Um ecossistema completo para o seu negócio</h2>
-            <br>
-            <div class="grid-cards">
-                <div class="card reveal">
-                    <div class="icon-box">📊</div>
-                    <h3>Gestão ERP</h3>
-                    <p>Controle financeiro, fiscal e estoque com precisão absoluta.</p>
+            <div class="header-inovacao">
+                <h2>Inovação está no nosso DNA</h2>
+                <p>Somos referência em tecnologia e soluções inteligentes para o mercado.</p>
+            </div>
+
+            <div class="grid-inovacao">
+                <div class="item-inovacao">
+                    <img src="assets/imagens/imagens/1.png" alt="Desenvolvimento">
+                    <p>23 anos de experiência <br> no mercado de tecnologia e sistemas.</p>
                 </div>
-                <div class="card reveal">
-                    <div class="icon-box">🛒</div>
-                    <h3>Automação Comercial</h3>
-                    <p>PDV rápido, seguro e integrado com as melhores tecnologias.</p>
+
+                <div class="item-inovacao">
+                    <img src="assets/imagens/imagens/2.png" alt="Investimento">
+                    <p>Soluções completas para Restaurantes, Pizzarias, Varejos e Pet Shops.</p>
                 </div>
-                <div class="card reveal">
-                    <div class="icon-box">🛡️</div>
-                    <h3>Segurança & TI</h3>
-                    <p>Infraestrutura de redes e proteção de dados empresarial.</p>
+
+                <div class="item-inovacao">
+                    <img src="assets/imagens/imagens/3.png" alt="IA">
+                    <p>Gestão Inteligente com suporte especializado e automação comercial.</p>
                 </div>
             </div>
         </div>
     </section>
+
+
+
+    <br>
 
 
     <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
-    <!-- <section id="sobre" class="about">
-        <div class="container about-grid">
-            <div class="about-visual reveal-left">
-                <img src="https://www.totvs.com/wp-content/uploads/2021/08/sobre-nos-1.png" alt="Sobre Nós">
-            </div>
-            <div class="about-content reveal-right">
-                <h2>Sobre a <span>Mega Sistemas</span></h2>
-                <p>Com mais de 30 anos de experiência, a Mega Sistemas é líder em soluções de gestão empresarial no Brasil. Nossa missão é impulsionar o crescimento dos nossos clientes através da inovação tecnológica e do suporte especializado.</p>
-                <ul class="about-features">
-                    <li>Mais de 10.000 clientes satisfeitos</li>
-                    <li>Suporte técnico 24/7</li>
-                    <li>Equipe especializada e certificada</li>
-                    <br>
-                </ul>
-                <a href="#contato" class="btn-main">Fale Conosco</a>
-            </div>
-        </div>
-        <br> -->
 
-
-    <section id="blog" class="blog">
-        <div class="container">
-            <h2 class="section-title">Últimas do nosso Blog</h2>
-            <div class="blog-grid">
-                <article class="post reveal">
-                    <div class="post-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500')">
-                    </div>
-                    <div class="post-content">
-                        <span>GESTÃO</span>
-                        <h4>5 dicas para controlar seu estoque em 2024</h4>
-                        <a href="#">Ler mais →</a>
-                    </div>
-                </article>
-                <article class="post reveal" style="transition-delay: 0.2s;">
-                    <div class="post-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500')">
-                    </div>
-                    <div class="post-content">
-                        <span>TECNOLOGIA</span>
-                        <h4>O impacto do Pix na Automação Comercial</h4>
-                        <a href="#">Ler mais →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col about-col">
-                    <div class="logo">MEGA<span>SISTEMAS</span></div>
+                    <div class="logo">MEGA<span>SISTEM</span></div>
+                    <br>
                     <p>Transformando negócios através da tecnologia e automação comercial desde 1995.</p>
                     <div class="social-links">
                         <a href="#">FB</a>
@@ -241,22 +269,21 @@
                     <p> • contato@megasistemas.com.br</p>
                 </div>
             </div>
-            <br>
-            <br>
 
+            <br><br>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Mega Sistemas Informática. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Mega Sistem Informática. Todos os direitos reservados.</p>
                 <div class="footer-legal">
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Termos de Uso</a>
+                    <a href="#" style="color: white;">Política de Privacidade</a>
+                    <a href="#" style="color: white;"">Termos de Uso</a>
                 </div>
             </div>
 
             <br>
-
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('.header');
@@ -269,6 +296,8 @@
                 }
             });
         });
+
+
     </script>
 </body>
 

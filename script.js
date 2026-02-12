@@ -1,101 +1,76 @@
-// 1. ANIMAÇÕES DE REVELAÇÃO (ScrollReveal)
-const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '60px',
-    duration: 1200,
-    delay: 200,
-    reset: false
-});
+document.addEventListener('DOMContentLoaded', () => {
 
-sr.reveal('.hero-content', {});
-sr.reveal('.card', { interval: 200 });
-sr.reveal('.reveal-left', { origin: 'left' });
-sr.reveal('.reveal-right', { origin: 'right' });
-sr.reveal('.post', { interval: 200 });
+  // --- LÓGICA DO SLIDER ---
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+  let slideInterval;
 
-// 2. LÓGICA DE TROCA DE SEGMENTOS (Tabs)
-const tabs = document.querySelectorAll('.segment-tabs li');
-const displayImg = document.getElementById('segment-img');
+  // Função principal que troca o slide
+  function showSlide(index) {
+    // Garante que o índice é válido (loop infinito)
+    if (index >= slides.length) currentIndex = 0;
+    else if (index < 0) currentIndex = slides.length - 1;
+    else currentIndex = index;
 
-tabs.forEach(tab => {
-    tab.addEventListener('mouseover', () => {
-        // Remove active de todos
-        tabs.forEach(t => t.classList.remove('active'));
-        // Adiciona ao atual
-        tab.classList.add('active');
-        // Muda a imagem com efeito de fade
-        displayImg.style.opacity = '0';
-        setTimeout(() => {
-            displayImg.src = tab.getAttribute('data-img');
-            displayImg.style.opacity = '1';
-        }, 200);
-    });
-});
-
-// 3. EFEITO DE HEADER AO SCROLL
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.style.padding = "10px 0";
-        header.style.background = "rgba(0, 13, 22, 0.98)";
-    } else {
-        header.style.padding = "20px 0";
-        header.style.background = "transparent";
-    }
-});
-
-window.addEventListener('load', () => {
-    console.log("Página carregada! Removendo loader..."); // Verifique isso no console (F12)
-
-    const loader = document.getElementById('preloader');
-
-    // Damos um tempo de 2 segundos para a animação da barra completar
-    setTimeout(() => {
-        if (loader) {
-            loader.classList.add('preloader-hidden');
-            console.log("Classe preloader-hidden adicionada.");
-        }
-    }, 2000);
-});
-
-
-window.addEventListener('scroll', function () {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-function showSlides() {
-    // Remove active de todos
-    slides.forEach(slide => slide.classList.remove('active'));
+    // Remove a classe ativa de todos
+    slides.forEach(slide => slide.classList.remove('is-active'));
     dots.forEach(dot => dot.classList.remove('active'));
 
-    currentSlideIndex++;
-    if (currentSlideIndex > slides.length) { currentSlideIndex = 1 }
+    // Adiciona a classe ativa no atual
+    slides[currentIndex].classList.add('is-active');
+    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+  }
 
-    slides[currentSlideIndex - 1].classList.add('active');
-    dots[currentSlideIndex - 1].classList.add('active');
+  // Função que os botões chamam
+  window.changeSlide = (step) => {
+    clearInterval(slideInterval); // Para o timer automático quando clica
+    showSlide(currentIndex + step);
+    startAutoSlide(); // Reinicia o timer
+  };
 
-    setTimeout(showSlides, 5000); // Troca a cada 5 segundos
-}
+  // Função que as bolinhas chamam
+  window.currentSlide = (index) => {
+    clearInterval(slideInterval);
+    showSlide(index);
+    startAutoSlide();
+  };
 
-// Inicia o carrossel
-showSlides();
+  // Auto-play (Timer)
+  function startAutoSlide() {
+    slideInterval = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 6000); // Muda a cada 6 segundos
+  }
 
+  // Inicializa se existirem slides
+  if (slides.length > 0) {
+    showSlide(0); // Garante que o primeiro aparece
+    startAutoSlide();
+  }
 
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
+  // --- SCROLL DO HEADER ---
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        header.classList.add('active-scroll');
+      header.classList.add('active-scroll');
     } else {
-        header.classList.remove('active-scroll');
+      header.classList.remove('active-scroll');
     }
+  });
 });
+
+// PODE APAGAR
+// ESSE DE BAIXO AQUI:
+// O DE CIMA NÂO
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > -50) {
+    header.classList.add('active-scroll');
+  } else {
+    header.classList.remove('active-scroll');
+  }
+});
+
+//
+
